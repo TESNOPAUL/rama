@@ -1,0 +1,155 @@
+/* Basic CSS styling, you can customize this further */
+
+/* Mobile-first styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links li {
+    margin-right: 120px;
+    
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.active .top {
+    transform: rotate(-45deg) translate(-9px, 5px);
+}
+
+.active .middle {
+    opacity: 0;
+}
+
+.active .bottom {
+    transform: rotate(45deg) translate(-9px, -5px);
+}
+.n-l{
+    position: relative;
+    text-decoration: none;
+    color: white;
+
+}
+.n-l::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    opacity: 0;
+    transition: 0.8s;
+    pointer-events: none;
+}
+.n-l:hover::after{
+    width: 100%;
+    opacity: 1;
+}
+.last{
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+.last::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    opacity: 0;
+    transition: 0.8s;
+    pointer-events: none;
+}
+.last:hover::after{
+    width: 100%;
+    opacity: 1;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-evenly;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 300px;
+        height: 0;
+        padding: 5px 0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        
+    }
+
+    .nav-active  {
+        display: flex;
+        height: 250px;
+        opacity: 1;
+        
+        
+    }
+    .nav-active a {
+        text-decoration: none;
+        color: white;
+        position: relative;
+        
+    }
+    .nav-active li{
+        margin: auto;
+    }
+    .nav-active .n-l::after, .nav-active .last::after {
+        content: none;
+    }
+    .nav-active .n-l, .nav-active .last{
+        transition: 0.5s;
+    }
+    .nav-active .n-l:hover, .nav-active .last:hover{
+        color: blue;
+    }
+}
